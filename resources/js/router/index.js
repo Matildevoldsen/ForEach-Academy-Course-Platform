@@ -5,7 +5,8 @@ import { routes as routes } from '../app/index'
 Vue.use(Router)
 
 const router = new Router({
-    routes: routes
+    routes: routes,
+    mode: 'history'
 })
 
 //Registering beforeEach
