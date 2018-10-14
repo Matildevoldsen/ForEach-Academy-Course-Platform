@@ -28,7 +28,32 @@ class RegisterFormRequest extends FormRequest
             'email' => 'required|max:255,unique:users',
             'password' => 'required|min:8',
             'phone' => 'required|min:6',
-            'address_country' => 'required',
+            'country' => 'required',
+        ];
+    }
+    private function randomWhoops() {
+        $num = rand(1, 4);
+
+        if ($num === 1) {
+            return "Whoops, ";
+        } else if ($num === 2) {
+            return "Please ";
+        } else if ($num === 3) {
+            return "Something went wrong, ";
+        } else {
+            return "Whoops! ";
+        }
+    }
+
+    public function messages()
+    {
+        $whoops = $this->randomWhoops();
+        return [
+            'name.required' => $whoops . 'enter your full name',
+            'email.required' => $whoops . 'enter your email',
+            'password.required' => $whoops . 'enter a password with min. 8 characters',
+            'phone.required' => $whoops . 'enter your phone number',
+            'country.required' => $whoops . 'tell us which country you\'re located in',
         ];
     }
 }

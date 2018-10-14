@@ -1,3 +1,5 @@
 <template>
-    <p>Login</p>
+    <Container>
+
+    </Container>
 </template>

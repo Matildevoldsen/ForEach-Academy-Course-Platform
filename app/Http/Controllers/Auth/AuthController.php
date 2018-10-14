@@ -24,7 +24,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->username,
-            'address_country' => $request->address_country,
+            'address_country' => $request->country,
             'password' => bcrypt($request->password),
         ]);
 

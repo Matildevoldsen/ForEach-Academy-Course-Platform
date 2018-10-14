@@ -19,5 +19,6 @@
             <app></app>
         </div>
     <script src="js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.4.3/plyr.min.js"></script>
     </body>
 </html>

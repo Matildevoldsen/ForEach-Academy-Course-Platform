@@ -6,7 +6,6 @@ Vue.use(Router)
 
 const router = new Router({
     routes: routes,
-    mode: 'history'
 })
 
 //Registering beforeEach
