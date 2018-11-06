@@ -1,21 +1,27 @@
 <template>
-    <nav>
-        <div v-if="!user.authenticated">
-            <router-link :to="{name: 'login'}">Login</router-link>
-            <router-link :to="{name: 'register'}">Register</router-link>
-        </div>
-        <div v-if="user.authenticated">
-            <router-link :to="{name: 'home'}">{{ user.data.name }}</router-link>
-        </div>
-    </nav>
+    <div>
+
+    </div>
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+    import {mapGetters, mapActions} from 'vuex'
 
     export default {
+        name: 'PersistentFull',
+        data: () => ({
+            menuVisible: false
+        }),
         computed: mapGetters({
             user: 'auth/user'
-        })
+        }),
+        methods: {
+            ...mapActions({
+                logout: 'auth/logout'
+            }),
+            toggleMenu() {
+                this.menuVisible = !this.menuVisible
+            }
+        }
     }
 </script>

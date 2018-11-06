@@ -1,4 +1,5 @@
 import {Login, Register} from '../components'
+import {Home} from '../../home/components'
 
 export default [
     {
@@ -18,5 +19,5 @@ export default [
             guest: true,
             needsAuth: false
         }
-    }
+    },
 ]

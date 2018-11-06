@@ -7,7 +7,7 @@ export default [
         name: 'home',
         meta: {
             guest: false,
-            needsAuth: false
+            needsAuth: true
         }
     }
 ]
