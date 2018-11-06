@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
         <title>ForEach Academy</title>
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons">
 
+        <!-- Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- Fonts -->
         <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons">
@@ -14,21 +14,14 @@
 
         <!-- Styles -->
         <link href="css/app.css" rel="stylesheet" type="text/css">
-        <style type="text/css">
-            .md-menu-content {
-                z-index: 10000 !important;
-            }
-        </style>
-        <script>
-
-        </script>
     </head>
     <body>
-    @include('cookieConsent::index')
         <div id="app">
             <app>
             </app>
         </div>
+        <!-- Cookie consent -->
+        @include('cookieConsent::index')
     <script src="js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.4.3/plyr.min.js"></script>
     </body>
