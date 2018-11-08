@@ -30,9 +30,11 @@ class CreateUsersTable extends Migration
             $table->dateTime('trial_start');
             $table->dateTime('trial_end');
             $table->tinyInteger('is_active');
+            $table->integer('is_admin');
             $table->rememberToken();
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

@@ -6,7 +6,7 @@ export default [
         component: Home,
         name: 'home',
         meta: {
-            guest: false,
+            guest: true,
             needsAuth: true
         }
     }

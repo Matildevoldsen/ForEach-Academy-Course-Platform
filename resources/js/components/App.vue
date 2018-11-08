@@ -4,7 +4,7 @@
             <md-button class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
                 <md-icon>menu</md-icon>
             </md-button>
-            <span class="md-title"><router-link :to="{name: 'home'}" ><img src="../img/logo.png"></router-link></span>
+            <span class="md-title"><router-link :to="{name: 'home'}"><img alt="ForEach Academy's Logo" src="../img/logo.png"></router-link></span>
         </md-app-toolbar>
 
         <md-app-drawer :md-active.sync="menuVisible" md-persistent="full">
@@ -24,13 +24,15 @@
                     <md-list-item>
                         <md-icon>lock</md-icon>
                         <router-link class="md-list-item-text"
-                                :to="{name: 'login'}">Login</router-link>
+                                     :to="{name: 'login'}">Login
+                        </router-link>
                     </md-list-item>
 
                     <md-list-item>
                         <md-icon>person_add</md-icon>
                         <router-link class="md-list-item-text"
-                                :to="{name: 'register'}">Register</router-link>
+                                     :to="{name: 'register'}">Register
+                        </router-link>
                     </md-list-item>
                 </div>
 
@@ -38,7 +40,8 @@
                     <md-list-item>
                         <md-icon>home</md-icon>
                         <router-link class="md-list-item-text"
-                                :to="{name: 'home'}">Home</router-link>
+                                     :to="{name: 'home'}">Home
+                        </router-link>
                     </md-list-item>
 
                     <md-list-item>
@@ -51,6 +54,12 @@
                         <md-icon>library_books</md-icon>
                         <span class="md-list-item-text"
                         >Tutorials</span>
+                    </md-list-item>
+
+                    <md-list-item v-if="user.is_admin = 1">
+                        <md-icon>dashboard</md-icon>
+                        <span class="md-list-item-text"
+                        >Admin Dashboard</span>
                     </md-list-item>
 
                     <md-list-item>

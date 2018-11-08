@@ -7,24 +7,24 @@
 
             <md-card-content>
                 <form method="post" role="form" @submit.prevent="submit">
-                    <md-field v-bind:class="{ 'has-error': errors.email}">
+                    <md-field v-bind:class="{ 'md-invalid': errors.email}">
                         <label>E-mail</label>
                         <md-input v-model="email" autocomplete="off" value="" type="email" name="email"></md-input>
-                        <span v-if="errors.email" class="md-helper-text">
+                        <span v-if="errors.email" class="md-error">
                             {{ errors.email[0] }}
                         </span>
                     </md-field>
 
-                    <md-field v-bind:class="{ 'has-error': errors.password}">
+                    <md-field v-bind:class="{ 'md-invalid': errors.password}">
                         <label>Password</label>
                         <md-input v-model="password" value="" type="password" autocomplete="off"
                                   name="password"></md-input>
-                        <span v-if="errors.password" class="md-helper-text">
+                        <span v-if="errors.password" class="md-error">
                             {{ errors.password[0] }}
                         </span>
                     </md-field>
 
-                    <md-button class="md-dense md-raised md-primary" type="submit">Submit</md-button>
+                    <md-button tabindex="-1" class="md-dense md-raised" type="submit">Submit</md-button>
                 </form>
             </md-card-content>
         </md-card>
@@ -40,7 +40,7 @@
             return {
                 password: null,
                 email: null,
-                errors: []
+                errors: [],
             }
         },
         methods: {
@@ -53,7 +53,7 @@
                         email: this.email,
                         password: this.password
                     },
-                    context: this
+                    context: this,
                 }).then(() => {
                     this.$router.replace({name: 'home'});
                 })

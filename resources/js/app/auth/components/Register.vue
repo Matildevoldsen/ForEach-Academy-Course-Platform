@@ -7,23 +7,23 @@
 
             <md-card-content>
                 <form method="post" role="form" @submit.prevent="submit">
-                    <md-field v-bind:class="{ 'has-error': errors.name}">
+                    <md-field v-bind:class="{ 'md-invalid': errors.name}">
                         <label>Full Name</label>
                         <md-input autocomplete="dospwp" v-model="name" value="" type="text" name="name"></md-input>
-                        <span v-if="errors.name" class="md-helper-text">
+                        <span v-if="errors.name" class="md-error">
                             {{ errors.name[0] }}
                         </span>
                     </md-field>
 
-                    <md-field v-bind:class="{ 'has-error': errors.phone}">
+                    <md-field v-bind:class="{ 'md-invalid': errors.phone}">
                         <label>Phone Number</label>
                         <md-input autocomplete="dospwp" v-model="phone" value="" type="tel" name="phone"></md-input>
-                        <span v-if="errors.phone" class="md-helper-text">
+                        <span v-if="errors.phone" class="md-error">
                             {{ errors.phone[0] }}
                         </span>
                     </md-field>
 
-                    <md-autocomplete v-bind:class="{ 'has-error': errors.country}" autocomplete="odoeieido_off" v-model="country" :md-options="countries">
+                    <md-autocomplete v-bind:class="{ 'md-invalid': errors.country}" autocomplete="odoeieido_off" v-model="country" :md-options="countries">
                         <label>Country</label>
 
                         <template slot="md-autocomplete-item" slot-scope="{ item, term }">
@@ -33,27 +33,30 @@
                         <template slot="md-autocomplete-empty" slot-scope="{ term }">
                             No countries matching "{{ term }}" were found. Contact us if you think this might be a mistake! Email <a href="mailto: hello@foreach.academy">hello@foreach.academy</a>
                         </template>
+                        <span v-if="errors.country" class="md-error">
+                            {{ errors.country[0] }}
+                        </span>
                     </md-autocomplete>
 
 
-                    <md-field v-bind:class="{ 'has-error': errors.email}">
+                    <md-field v-bind:class="{ 'md-invalid': errors.email}">
                         <label>E-mail</label>
                         <md-input v-model="email" autocomplete="odoeieido_off" value="" type="email"></md-input>
-                        <span v-if="errors.email" class="md-helper-text">
+                        <span v-if="errors.email" class="md-error">
                             {{ errors.email[0] }}
                         </span>
                     </md-field>
 
-                    <md-field v-bind:class="{ 'has-error': errors.password}">
+                    <md-field v-bind:class="{ 'md-invalid': errors.password}">
                         <label>Password</label>
                         <md-input autocomplete="dospwp" v-model="password"  value="" type="password"
                                   ></md-input>
-                        <span v-if="errors.password" class="md-helper-text">
+                        <span v-if="errors.password" class=" md-error">
                             {{ errors.password[0] }}
                         </span>
                     </md-field>
 
-                    <md-button class="md-dense md-raised" type="submit">Submit</md-button>
+                    <md-button tabindex="-1" class="md-dense md-raised" type="submit">Submit</md-button>
                 </form>
             </md-card-content>
         </md-card>
@@ -70,6 +73,8 @@
                 password: null,
                 phone: null,
                 email: null,
+                country: null,
+                errors: [],
                 countries: ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas"
                     ,"Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands"
                     ,"Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica"
@@ -85,8 +90,6 @@
                     ,"Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia"
                     ,"Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","United States Minor Outlying Islands","Uruguay"
                     ,"Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"],
-                country: null,
-                errors: [],
             }
         },
         methods: {
